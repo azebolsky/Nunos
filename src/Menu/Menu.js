@@ -1,5 +1,6 @@
 import React from "react";
 import "./Menu.css";
+// import M from "materialize-css";
 
 const menuSections = [
   {
@@ -73,16 +74,14 @@ const menuSections = [
 
 const menu = () => {
   return (
-    <div>
-      <div className="container">
-        {menuSections.map((item) => {
-          return (
-            <div className="grids">
-              <h1>{item.title}</h1>
-              <h1>{item.title2 ? item.title2 : ""}</h1>
-              {!item[0] ? (
-                <p>{item.details}</p>
-              ) : (
+    <div className="container">
+      {menuSections.map((item) => {
+        return (
+          <div className={item.title === "VEGGIE PROTEIN/GUISADOS" ? "grid-a z-depth-1" : "grids z-depth-1"} >
+            <h1>{item.title}</h1>
+            <h1>{item.title2 ? item.title2 : ""}</h1>
+            {
+              item.title === "VEGGIE PROTEIN/GUISADOS" ? (
                 item.details.map((protein) => {
                   return (
                     <ul>
@@ -90,12 +89,14 @@ const menu = () => {
                     </ul>
                   );
                 })
-              )}
-              <button>Add to Order</button>
-            </div>
-          );
-        })}
-      </div>
+              ) : (
+                  <p>{item.details}</p>
+                )
+            }
+            <button>Add to Order</button>
+          </div>
+        );
+      })}
     </div>
   );
 };

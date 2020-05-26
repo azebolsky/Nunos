@@ -1,18 +1,27 @@
 .container {
-  background-color: red;
   height: 100%;
-  padding: 1em;
+  width: 100%;
   background-color: rgba(222, 193, 148, 1);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: minmax(auto, auto);
+  grid-gap: 0.2em;
+  padding: 1em;
 }
 
 .grids {
   border: 2px dotted black;
 }
 
-.grids:hover {
+.grid-a {
+  border: 2px dotted black;
+  display: grid;
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+}
+
+.grids:hover, .grid-a:hover {
   border: 2px solid black;
   box-shadow: 0 2px 3px black;
+  background-color: rgb(218, 158, 67)
 }
